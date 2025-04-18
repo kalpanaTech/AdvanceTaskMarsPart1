@@ -1,4 +1,5 @@
-﻿using AdvanceTaskMarsPart1.Steps;
+﻿using AdvanceTaskMarsPart1.Pages;
+using AdvanceTaskMarsPart1.Steps;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using CompetionTaskMars.Helpers;
@@ -12,6 +13,7 @@ using OpenQA.Selenium;
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Xml;
 
 namespace CompetionTaskMars.Tests
 {
@@ -22,7 +24,8 @@ namespace CompetionTaskMars.Tests
         protected ExtentTest test;
 
         private SignIn signInObj;
-        private LanguageSteps languageStepsObj;
+        HomePageSteps homePageStepsObj = new HomePageSteps();
+        ProfileMenuTabsComponents profileMenuTabsComponentsObj = new ProfileMenuTabsComponents();
 
 
 
@@ -54,21 +57,21 @@ namespace CompetionTaskMars.Tests
             test = extent.CreateTest("Login Setup");
             test.Info("Login successful");
 
-            // Initialize Steps for Language and Skill
-           languageStepsObj = new LanguageSteps();
-          
+            
 
             // Perform Cleanup Before Starting
-           // PerformFeatureCleanup();
+           PerformFeatureCleanup();
 
         }
         private void PerformFeatureCleanup()
         {
             // Cleanup for Language
-            
+            homePageStepsObj.ClickOnProfileTab();
+            profileMenuTabsComponentsObj.ClickLangaugesTab();
+            profileMenuTabsComponentsObj.RemoveAddedLanguageDetails();
 
             // Cleanup for Skill
-            
+
 
         }
 
@@ -120,8 +123,7 @@ namespace CompetionTaskMars.Tests
         [OneTimeTearDown]
         public void TearDownReport()
         {
-            // Perform Cleanup Before Closing
-            PerformFeatureCleanup();
+          
 
             // Quit WebDriver
            // QuitDriver();

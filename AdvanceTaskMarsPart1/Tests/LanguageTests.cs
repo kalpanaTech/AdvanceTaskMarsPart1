@@ -44,14 +44,10 @@ namespace AdvanceTaskMarsPart1.Tests
             {
                 homePageStepsObj.ClickOnProfileTab();
                 profileMenuTabsComponentsObj.ClickLangaugesTab();
-                languageStepsObj.AddLanguage(credentials);
-
-                test.Pass("Add New Language Test case passed successfully.");
+                languageStepsObj.AddLanguage(credentials);         
 
             }
-            
-
-
+            test.Pass("Add New Language Test case passed successfully.");
 
 
         }
