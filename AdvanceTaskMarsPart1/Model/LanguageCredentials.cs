@@ -9,6 +9,6 @@ namespace AdvanceTaskMarsPart1.Model
     public class LanguageCredentials
     {
         public string AddLanguage { get; set; }
-        public string ChooseLanguageLevel { get; set; }
+        public string SelectLanguageLevel { get; set; }
     }
 }

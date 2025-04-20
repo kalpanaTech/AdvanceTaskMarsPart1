@@ -22,11 +22,14 @@ namespace AdvanceTaskMarsPart1.Assertions
         private static IWebElement cancelButton;
 
         // Toast Messages
-        static string AddInvalidLangMessage = "Please enter language and level";
-        static string AddExsistingLangMessage = "This language is already exist in your language list.";
-        static string AddDuplicateLangMessage = "Duplicated data";
+        private static string AddInvalidLangMessage = "Please enter language and level";
+        private static string AddExsistingLangMessage = "This language is already exist in your language list.";
+        private static string EditAsExsistingLangMessage = "This language is already added to your language list.";
+        private static string UpdateLangMessage = "has been updated to your languages";
+        private static string AddDuplicateLangMessage = "Duplicated data";
+        private static string UndefinedMessage = "undefined";
 
-      
+
         public void AddLanguageAssertions(string language, ExtentTest test)
         {
             try
@@ -61,7 +64,7 @@ namespace AdvanceTaskMarsPart1.Assertions
                 }
                 else
                 {
-                    test.Pass("Language add Failed");
+                    test.Fail("Language add Failed");
                     
                 }
             }
@@ -71,6 +74,74 @@ namespace AdvanceTaskMarsPart1.Assertions
             }
         }
 
-        
+        public void EditLanguageAssertions(string language, ExtentTest test)
+        {
+            try
+            {
+                Wait.WaitToBeVisible(driver, toastMessageLocator, 10);
+                toastMessage = driver.FindElement(toastMessageLocator);
+
+                string displayedMessage = toastMessage.Text;
+                Console.WriteLine(displayedMessage);
+
+                string editLangMessage = language + " has been updated to your languages";
+
+                Assert.That(displayedMessage, Is.EqualTo(editLangMessage)
+                    .Or.EqualTo(UpdateLangMessage)
+                    .Or.EqualTo(AddInvalidLangMessage)
+                    .Or.EqualTo(EditAsExsistingLangMessage)
+                    .Or.EqualTo(AddDuplicateLangMessage));
+
+                if ((displayedMessage == AddInvalidLangMessage) ||
+                    (displayedMessage == EditAsExsistingLangMessage) ||
+                    (displayedMessage == AddDuplicateLangMessage))
+                {
+                    test.Info("Entered invalid language data: " + displayedMessage);
+                    cancelButton = driver.FindElement(cancelButtonLocator);
+                    cancelButton.Click();
+                }
+                else if (displayedMessage == editLangMessage || displayedMessage.Contains("updated to your languages"))
+                {
+                    test.Pass("Language edited successfully: " + displayedMessage);
+                }
+                else
+                {
+                    test.Fail("Language edit failed or unexpected message: " + displayedMessage);
+                }
+            }
+            catch (WebDriverTimeoutException ex)
+            {
+                throw new Exception("Toast message did not appear in the expected time.", ex);
+            }
+        }
+
+        public void DeleteLanguageAssertions(string language, ExtentTest test)
+        {
+            try
+            {
+                Wait.WaitToBeVisible(driver, toastMessageLocator, 10);
+                toastMessage = driver.FindElement(toastMessageLocator);
+
+                string displayedMessage = toastMessage.Text;
+                Console.WriteLine(displayedMessage);
+
+                string deleteLangMessage = language + " has been deleted from your languages";
+
+                Assert.That(displayedMessage, Is.EqualTo(deleteLangMessage));
+
+                if (displayedMessage == deleteLangMessage)
+                {
+                    test.Pass("Language deleted successfully: " + displayedMessage);
+                }
+                else
+                {
+                    test.Fail("Language delete failed or unexpected message: " + displayedMessage);
+                }
+            }
+            catch (WebDriverTimeoutException ex)
+            {
+                throw new Exception("Toast message did not appear in the expected time.", ex);
+            }
+        }
     }
 }

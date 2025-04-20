@@ -21,11 +21,35 @@ namespace AdvanceTaskMarsPart1.Steps
         {
 
             string language = credentials.AddLanguage;
-            string languageLevel = credentials.ChooseLanguageLevel;
+            string languageLevel = credentials.SelectLanguageLevel;
             profileLanguageOverviewComponentObj.AddLanguageActions(language, languageLevel);
             languageAssertionsObj.AddLanguageAssertions(language, test);
 
 
+        }
+
+        public void EditLanguage(LanguageCredentials credentials, ExtentTest test)
+        {
+            
+            AddLanguage(credentials, test);
+
+            string language = credentials.AddLanguage;
+            string languageLevel = credentials.SelectLanguageLevel;
+
+            profileLanguageOverviewComponentObj.EditLanguageActions(language, languageLevel);
+            languageAssertionsObj.EditLanguageAssertions(language, test);
+        }
+
+        public void DeleteLanguage(LanguageCredentials credentials, ExtentTest test)
+        {
+            
+            AddLanguage(credentials, test);
+
+            string language = credentials.AddLanguage;
+            string languageLevel = credentials.SelectLanguageLevel;
+
+            profileLanguageOverviewComponentObj.DeleteLanguageActions(language, languageLevel);
+            languageAssertionsObj.DeleteLanguageAssertions(language, test);
         }
     }
 }

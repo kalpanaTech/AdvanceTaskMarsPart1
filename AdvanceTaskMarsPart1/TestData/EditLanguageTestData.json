@@ -1,0 +1,22 @@
+﻿[
+  {
+    "AddLanguage": "English",
+    "SelectLanguageLevel": "Basic"
+  },
+  {
+    "AddLanguage": "German",
+    "SelectLanguageLevel": "Fluent"
+  },
+  {
+    "AddLanguage": "German",
+    "SelectLanguageLevel": "Basic"
+  },
+  {
+    "AddLanguage": " ",
+    "SelectLanguageLevel": " "
+  },
+  {
+    "AddLanguage": "Manderin",
+    "SelectLanguageLevel": "Fluent"
+  }
+]

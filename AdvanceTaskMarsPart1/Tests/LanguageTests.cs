@@ -54,6 +54,42 @@ namespace AdvanceTaskMarsPart1.Tests
 
 
         }
+        [Test, Order(2), Description("Testcase : Edit new Language")]
+
+        public void TestEditNewLanguage()
+        {
+            string testDataPath = "C:\\repo\\AdvanceTaskMarsPart1\\AdvanceTaskMarsPart1\\AdvanceTaskMarsPart1\\TestData\\EditLanguageTestData.json";
+            List<LanguageCredentials> credentialsList = JsonReader.GetLanguageCredentialsList(testDataPath);
+
+            foreach (var credentials in credentialsList)
+            {
+                homePageStepsObj.ClickOnProfileTab();
+                profileMenuTabsComponentsObj.ClickLangaugesTab();
+                languageStepsObj.EditLanguage(credentials, test);
+
+            }
+
+            test.Pass("Edit New Language Test case passed successfully.");
+        }
+
+
+        [Test, Order(3), Description("Testcase : Delete new Language")]
+
+        public void TestDeleteNewLanguage()
+        {
+            string testDataPath = "C:\\repo\\AdvanceTaskMarsPart1\\AdvanceTaskMarsPart1\\AdvanceTaskMarsPart1\\TestData\\DeleteLanguageTestData.json";
+            List<LanguageCredentials> credentialsList = JsonReader.GetLanguageCredentialsList(testDataPath);
+
+            foreach (var credentials in credentialsList)
+            {
+                homePageStepsObj.ClickOnProfileTab();
+                profileMenuTabsComponentsObj.ClickLangaugesTab();
+                languageStepsObj.DeleteLanguage(credentials, test);
+
+            }
+
+            test.Pass("Delete New Language Test case passed successfully.");
+        }
     }
 }
 
