@@ -1,4 +1,5 @@
-﻿using AdvanceTaskMarsPart1.Model;
+﻿using AdvanceTaskMarsPart1.Assertions;
+using AdvanceTaskMarsPart1.Model;
 using AdvanceTaskMarsPart1.Pages;
 using AdvanceTaskMarsPart1.Steps;
 using CompetionTaskMars.Helpers;
@@ -20,6 +21,7 @@ namespace AdvanceTaskMarsPart1.Tests
         LanguageSteps languageStepsObj;
         HomePageSteps homePageStepsObj;
         ProfileMenuTabsComponents profileMenuTabsComponentsObj;
+        
 
         [SetUp]
         public void Init()
@@ -27,6 +29,7 @@ namespace AdvanceTaskMarsPart1.Tests
             languageStepsObj = new LanguageSteps();
             homePageStepsObj = new HomePageSteps();
             profileMenuTabsComponentsObj = new ProfileMenuTabsComponents();
+           
 
 
         }
@@ -44,8 +47,8 @@ namespace AdvanceTaskMarsPart1.Tests
             {
                 homePageStepsObj.ClickOnProfileTab();
                 profileMenuTabsComponentsObj.ClickLangaugesTab();
-                languageStepsObj.AddLanguage(credentials);         
-
+                languageStepsObj.AddLanguage(credentials, test);
+                
             }
             test.Pass("Add New Language Test case passed successfully.");
 

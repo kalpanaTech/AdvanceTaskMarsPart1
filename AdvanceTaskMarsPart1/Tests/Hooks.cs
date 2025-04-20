@@ -21,7 +21,7 @@ namespace CompetionTaskMars.Tests
     public class Hooks : Driver
     {
         public static ExtentReports extent;
-        protected ExtentTest test;
+        public static ExtentTest test;
 
         private SignIn signInObj;
         HomePageSteps homePageStepsObj = new HomePageSteps();
@@ -54,13 +54,13 @@ namespace CompetionTaskMars.Tests
             var credentials = credentialsList.First();
             signInObj.LoginActions(credentials.Email, credentials.Password);
 
-            test = extent.CreateTest("Login Setup");
-            test.Info("Login successful");
+            var testName = TestContext.CurrentContext.Test.Name;
+            test = extent.CreateTest(testName);
 
-            
+
 
             // Perform Cleanup Before Starting
-           PerformFeatureCleanup();
+            PerformFeatureCleanup();
 
         }
         private void PerformFeatureCleanup()
