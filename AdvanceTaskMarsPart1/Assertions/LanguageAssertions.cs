@@ -59,7 +59,7 @@ namespace AdvanceTaskMarsPart1.Assertions
                 }
                 else if (displayedMessage == addLangMessage)
                 {
-                   test.Pass("Entered valid data : " + displayedMessage);
+                   test.Pass("Language added successfully : " + displayedMessage);
                     
                 }
                 else

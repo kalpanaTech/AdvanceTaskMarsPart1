@@ -24,5 +24,10 @@ namespace CompetionTaskMars.Utilities
             var jsonData = File.ReadAllText(jsonFilePath);
             return JsonConvert.DeserializeObject<List<LanguageCredentials>>(jsonData);
         }
+        public static List<SkillCredentials> GetSkillCredentialsList(string jsonFilePath)
+        {
+            var jsonData = File.ReadAllText(jsonFilePath);
+            return JsonConvert.DeserializeObject<List<SkillCredentials>>(jsonData);
+        }
     }
 }

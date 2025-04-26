@@ -61,6 +61,7 @@ namespace CompetionTaskMars.Tests
 
             // Perform Cleanup Before Starting
             PerformFeatureCleanup();
+            
 
         }
         private void PerformFeatureCleanup()
@@ -71,7 +72,9 @@ namespace CompetionTaskMars.Tests
             profileMenuTabsComponentsObj.RemoveAddedLanguageDetails();
 
             // Cleanup for Skill
-
+            homePageStepsObj.ClickOnProfileTab();
+            profileMenuTabsComponentsObj.ClickSkillsTab();
+            profileMenuTabsComponentsObj.RemoveAddedSkillsDetails();
 
         }
 

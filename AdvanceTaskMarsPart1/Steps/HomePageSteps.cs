@@ -18,5 +18,10 @@ namespace AdvanceTaskMarsPart1.Steps
         {
             homePageObj.ProfileTabClick();
         }
+        public void ClickOnNotificationPanel()
+        {
+
+            homePageObj.NotificationClick();
+        }
     }
 }
