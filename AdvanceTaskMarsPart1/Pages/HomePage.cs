@@ -20,6 +20,7 @@ namespace AdvanceTaskMarsPart1.Pages
         private static IWebElement notification;
         private static IWebElement dashboardNotification;
         private static IWebElement profileTab;
+        private static IWebElement searchSkill;
 
         public void ProfileTabComponentRendering()
         {
@@ -49,6 +50,17 @@ namespace AdvanceTaskMarsPart1.Pages
                 Console.WriteLine("Notification option not located: " + ex.Message);
             }
         }
+        public void SearchSkillComponentRendering()
+        {
+            try
+            {
+                searchSkill = driver.FindElement(By.XPath("//i[@class='search link icon']"));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Search skill option not located");
+            }
+        }
 
         public void ProfileTabClick()
         {
@@ -60,6 +72,11 @@ namespace AdvanceTaskMarsPart1.Pages
             NotificationComponentRendering();
             notification.Click();
             dashboardNotification.Click();
+        }
+        public void SearchSkillClick()
+        {
+            SearchSkillComponentRendering();
+            searchSkill.Click();
         }
     }
 }

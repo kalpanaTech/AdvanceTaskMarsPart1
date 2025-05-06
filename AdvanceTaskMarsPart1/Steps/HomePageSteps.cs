@@ -23,5 +23,9 @@ namespace AdvanceTaskMarsPart1.Steps
 
             homePageObj.NotificationClick();
         }
+        public void ClickOnSearchSkill()
+        {
+            homePageObj.SearchSkillClick();
+        }
     }
 }

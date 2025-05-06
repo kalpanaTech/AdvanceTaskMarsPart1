@@ -29,5 +29,24 @@ namespace CompetionTaskMars.Utilities
             var jsonData = File.ReadAllText(jsonFilePath);
             return JsonConvert.DeserializeObject<List<SkillCredentials>>(jsonData);
         }
+        public static List<SearchSkillCategoryCredentials> GetSearchSkillCategoryList(string jsonFilePath)
+        {
+            var jsonData = File.ReadAllText(jsonFilePath);
+            return JsonConvert.DeserializeObject<List<SearchSkillCategoryCredentials>>(jsonData);
+        }
+
+        public static List<SearchSkillSubCategoryCredentials> GetSearchSkillSubCategoryList(string jsonFilePath)
+        {
+            var jsonData = File.ReadAllText(jsonFilePath);
+            return JsonConvert.DeserializeObject<List<SearchSkillSubCategoryCredentials>>(jsonData);
+        }
+
+        public static List<SearchSkillFilterCredentials> GetSearchSkillFilterList(string jsonFilePath)
+        {
+            var jsonData = File.ReadAllText(jsonFilePath);
+            return JsonConvert.DeserializeObject<List<SearchSkillFilterCredentials>>(jsonData);
+        }
+
+
     }
 }
