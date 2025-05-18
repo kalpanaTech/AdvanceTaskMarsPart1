@@ -16,11 +16,14 @@ namespace AdvanceTaskMarsPart1.Pages
         private static readonly By profileTabLocator = By.XPath("//*[@id=\"account-profile-section\"]/div/section[1]/div/a[2]");
         private static readonly By notificationLocator = By.XPath("//*[@id=\"account-profile-section\"]/div/div[1]/div[2]/div/div");
         private static readonly By dashboardNotificationLocator = By.LinkText("Dashboard");
+        private static readonly By searchSkillLocator = By.XPath("//i[@class='search link icon']");
+        private static readonly By shareSkillLocator = By.XPath("//a[contains(text(),'Share Skill')]");
 
         private static IWebElement notification;
         private static IWebElement dashboardNotification;
         private static IWebElement profileTab;
         private static IWebElement searchSkill;
+        private static IWebElement shareSkill;
 
         public void ProfileTabComponentRendering()
         {
@@ -54,11 +57,25 @@ namespace AdvanceTaskMarsPart1.Pages
         {
             try
             {
-                searchSkill = driver.FindElement(By.XPath("//i[@class='search link icon']"));
+                Wait.WaitToBeClickable(driver, searchSkillLocator, 3);
+                searchSkill = driver.FindElement(searchSkillLocator);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Search skill option not located");
+                Console.WriteLine("Search skill option not located: " + ex.Message);
+            }
+        }
+
+        public void ShareSkillComponentRendering()
+        {
+            try
+            {
+                Wait.WaitToBeClickable(driver, shareSkillLocator, 3);
+                shareSkill = driver.FindElement(shareSkillLocator);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Share skill button not located: " + ex.Message);
             }
         }
 
@@ -77,6 +94,11 @@ namespace AdvanceTaskMarsPart1.Pages
         {
             SearchSkillComponentRendering();
             searchSkill.Click();
+        }
+        public void ShareSkillClick()
+        {
+            ShareSkillComponentRendering();
+            shareSkill.Click();
         }
     }
 }

@@ -24,7 +24,6 @@ namespace AdvanceTaskMarsPart1.Assertions
         private static string AddExsistingSkillMessage = "This skill is already exist in your skill list.";
         private static string EditAsExsistingSkillMessage = "This skill is already added to your skill list.";
         private static string AddDuplicateSkillMessage = "Duplicated data";
-       // private static string UpdateSkillMessage = " has been updated to your skills";
         private static string UndefinedMessage = "undefined";
 
         public void AddSkillsAssertions(string skill, ExtentTest test)

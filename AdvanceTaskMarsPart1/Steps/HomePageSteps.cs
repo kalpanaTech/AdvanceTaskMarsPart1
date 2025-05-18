@@ -27,5 +27,9 @@ namespace AdvanceTaskMarsPart1.Steps
         {
             homePageObj.SearchSkillClick();
         }
+        public void ClickOnShareSkill()
+        {
+            homePageObj.ShareSkillClick();
+        }
     }
 }
