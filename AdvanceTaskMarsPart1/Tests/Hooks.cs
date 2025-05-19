@@ -59,7 +59,7 @@ namespace CompetionTaskMars.Tests
 
 
 
-            // Perform Cleanup Before Starting
+            // Perform Cleanup Before Execute Testcases
             PerformFeatureCleanup();
             
 
@@ -128,10 +128,9 @@ namespace CompetionTaskMars.Tests
         {
           
 
-            // Quit WebDriver
-           // QuitDriver();
+           QuitDriver();
 
-            // Flush Extent Report
+      
             extent.Flush();
         }
     }

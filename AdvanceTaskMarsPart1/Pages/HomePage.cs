@@ -18,12 +18,14 @@ namespace AdvanceTaskMarsPart1.Pages
         private static readonly By dashboardNotificationLocator = By.LinkText("Dashboard");
         private static readonly By searchSkillLocator = By.XPath("//i[@class='search link icon']");
         private static readonly By shareSkillLocator = By.XPath("//a[contains(text(),'Share Skill')]");
+        private static readonly By userCheckingLocator = By.XPath("//*[@id=\"account-profile-section\"]/div/div[1]/div[2]/div/span");
 
         private static IWebElement notification;
         private static IWebElement dashboardNotification;
         private static IWebElement profileTab;
         private static IWebElement searchSkill;
         private static IWebElement shareSkill;
+        private static IWebElement userChecking;
 
         public void ProfileTabComponentRendering()
         {
@@ -78,6 +80,7 @@ namespace AdvanceTaskMarsPart1.Pages
                 Console.WriteLine("Share skill button not located: " + ex.Message);
             }
         }
+       
 
         public void ProfileTabClick()
         {
@@ -100,5 +103,6 @@ namespace AdvanceTaskMarsPart1.Pages
             ShareSkillComponentRendering();
             shareSkill.Click();
         }
+        
     }
 }

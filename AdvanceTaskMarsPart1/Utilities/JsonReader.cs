@@ -52,7 +52,11 @@ namespace CompetionTaskMars.Utilities
             return JsonConvert.DeserializeObject<List<ShareSkillCredentials>>(jsonData);
         }
 
-
+        public static List<UserDetailCredentials> GetUserDetailCredentialsList(string jsonFilePath)
+        {
+            var jsonData = File.ReadAllText(jsonFilePath);
+            return JsonConvert.DeserializeObject<List<UserDetailCredentials>>(jsonData);
+        }
 
     }
 }

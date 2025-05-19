@@ -115,9 +115,7 @@ namespace AdvanceTaskMarsPart1.Pages
         public void SearchSkillWithAllCategories(SearchSkillCategoryCredentials credential)
         {
             try
-            {
-               
-               
+            {              
                 searchSkillTextBoxRendering();
                 searchSkillsTextBox.SendKeys(credential.Category);
                 searchSkillButtonRendering();
