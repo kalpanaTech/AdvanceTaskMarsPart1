@@ -1,0 +1,38 @@
+﻿[
+  {
+    "Title": "Software Tester",
+    "Description": "Web testing and API testing",
+    "Category": "Test Automation",
+    "SubCategory": "Selenium",
+    "Tags": "Tutor",
+    "ServiceType": "Hourly basis service",
+    "LocationType": "Online",
+    "SkillTrade": "Skill-exchange",
+    "SkillExchange": "Software Development",
+    "Active": "Active"
+  },
+  {
+    "Title": "",
+    "Description": "",
+    "Category": "Data Science",
+    "SubCategory": "Big Data",
+    "Tags": "",
+    "ServiceType": "Hourly basis service",
+    "LocationType": "",
+    "SkillTrade": "",
+    "SkillExchange": "Design",
+    "Active": "Active"
+  },
+  {
+    "Title": "Business Consultation",
+    "Description": "Business consultation",
+    "Category": "Communication",
+    "SubCategory": "Other",
+    "Tags": "Consultation",
+    "ServiceType": "One - off service",
+    "LocationType": "Online",
+    "SkillTrade": "Credit",
+    "Credit": "5",
+    "Active": "Hidden"
+  }
+]
